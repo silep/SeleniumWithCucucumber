@@ -6,7 +6,9 @@ pipeline {
         stage('Maven') {
           steps {
             echo 'Running from Jenkins file'
-            sh(script: 'mvn compile', label: 'maven')
+            withMaven(maven: 'mvn-3.6.3') {
+              sh(script: 'mvn compile', label: 'maven')
+            }
           }
         }
 
