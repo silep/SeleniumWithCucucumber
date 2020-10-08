@@ -9,6 +9,7 @@ pipeline {
             withMaven(maven: 'mvn-3.6.3') {
               sh(script: 'mvn compile', label: 'maven')
             }
+
           }
         }
 
@@ -18,6 +19,12 @@ pipeline {
           }
         }
 
+      }
+    }
+
+    stage('finish') {
+      steps {
+        echo 'finished'
       }
     }
 
